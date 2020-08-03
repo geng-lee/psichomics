@@ -11,7 +11,8 @@ renderGeneticInfo(
   assembly = NULL,
   grch37 = FALSE,
   eventDiagram = NULL,
-  gene = NULL
+  gene = NULL,
+  event = NULL
 )
 }
 \arguments{
@@ -26,6 +27,10 @@ renderGeneticInfo(
 \item{grch37}{Boolean: use version GRCh37 of the genome?}
 
 \item{eventDiagram}{Diagram of selected alternative splicing event}
+
+\item{gene}{Character: gene}
+
+\item{event}{Character: alternative splicing event}
 
 \item{ns}{Namespace function}
 }
