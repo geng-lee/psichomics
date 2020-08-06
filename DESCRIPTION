@@ -83,7 +83,8 @@ Suggests:
     covr,
     car,
     rstudioapi,
-    spelling
+    spelling,
+    shinytest
 LinkingTo: Rcpp
 VignetteBuilder: knitr
 Collate: 

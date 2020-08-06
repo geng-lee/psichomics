@@ -428,6 +428,7 @@ appServer <- function(input, output, session) {
 #' @inheritDotParams shiny::runApp -appDir -launch.browser
 #' @param reset Boolean: reset Shiny session? Requires package \code{devtools}
 #' @param testData Boolean: load with test data
+#' @param testMode Boolean: prepare app to run in unit testing mode?
 #'
 #' @importFrom shiny shinyApp runApp addResourcePath
 #'
@@ -439,13 +440,15 @@ appServer <- function(input, output, session) {
 #' \dontrun{
 #' psichomics()
 #' }
-psichomics <- function(..., launch.browser=TRUE, reset=FALSE, testData=FALSE) {
+psichomics <- function(..., launch.browser=TRUE, reset=FALSE, testData=FALSE,
+                       testMode=FALSE) {
     # Add icons related to set operations
     addResourcePath("set-operations",
                     insideFile("shiny", "www", "set-operations"))
     if (reset) devtools::load_all()
     
     if (testData) {
+        display("Loading test data...")
         loadFile <- function(file) {
             if (!file.exists(file)) {
                 # Fetch file online if not locally available
